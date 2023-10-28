@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medical_inventory/date_picker.dart';
+import 'package:medical_inventory/screens/home_pages.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyDatePickerApp(),
+      home: MyHomePage(),
     );
   }
 }

@@ -8,6 +8,8 @@ class CreateSale extends StatefulWidget {
 }
 
 class _CreateSaleState extends State<CreateSale> {
+  bool _switchValue = false;
+
   DateTime selectedDate = DateTime.now();
   TextEditingController dateController = TextEditingController();
 
@@ -77,8 +79,8 @@ class _CreateSaleState extends State<CreateSale> {
                         borderRadius: BorderRadius.all(Radius.circular(8)),
                       ),
                       suffixIcon: Icon(
-                        Icons.add, // Replace with the icon you want to use
-                        color: Colors.blue, // Customize the icon color
+                        Icons.add,
+                        color: Colors.blue,
                       ),
                     ),
                   ),
@@ -116,27 +118,35 @@ class _CreateSaleState extends State<CreateSale> {
                         flex: 1,
                         child: buildFormField('', 'Refill Reminder'),
                       ),
+                      Column(
+                        children: [
+                          Switch(
+                              value: _switchValue,
+                              onChanged: (value) {
+                                setState(() {
+                                  _switchValue = value;
+                                });
+                              }),
+                          Text('Days'),
+                        ],
+                      ),
                     ],
                   ),
-                  SizedBox(height: 12,),
+                  SizedBox(
+                    height: 12,
+                  ),
                   ElevatedButton(
-                    onPressed: () {
-                      // Add your button click action here
-                    },
+                    onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      minimumSize:
-                          Size(double.infinity, 50), // Set the button height
+                      minimumSize: Size(double.infinity, 50),
                     ),
                     child: Center(
                       child: Text(
                         'Add Medicine',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18
-                        ),
+                        style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
